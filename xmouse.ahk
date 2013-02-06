@@ -1,8 +1,11 @@
 mousedrag_treshold := 20 ; pixels
 
+GroupAdd, ignore, ahk_class ConsoleWindowClass
+GroupAdd, ignore, ahk_class mintty
+GroupAdd, ignore, ahk_class inferno
 Hotkey mbutton, paste_selection
 
-#IfWinNotActive ahk_class ConsoleWindowClass
+#IfWinNotActive ahk_group ignore
 ~lButton::
   MouseGetPos, mousedrag_x, mousedrag_y
   keywait lbutton
@@ -15,18 +18,11 @@ Hotkey mbutton, paste_selection
       sendinput !w
     else if (class == "MozillaWindowClass")
       sendinput ^v^c
-    else if (class == "inferno")
-      noop = ""
-    else if (class == "mintty")
-      noop = ""
-    else if (class == "ConsoleWindowClass")
-      noop = ""
     else
       sendinput ^c
     settimer follow_mouse, 100
   }
   return
-#IfWinNotActive
  
 follow_mouse:
   ; tooltip copy
@@ -39,12 +35,6 @@ paste_selection:
     SendInput ^y
   else if (class == "MozillaWindowClass")
     sendinput ^v^v
-  else if (class == "inferno")
-    noop = ""
-  else if (class == "mintty")
-    noop = ""
-  else if (class == "ConsoleWindowClass")
-    noop = ""
   else
     SendInput ^v
   gosub cleanup
