@@ -3,6 +3,7 @@ mousedrag_treshold := 20 ; pixels
 GroupAdd, ignore, ahk_class ConsoleWindowClass
 GroupAdd, ignore, ahk_class mintty
 GroupAdd, ignore, ahk_class inferno
+GroupAdd, ignore, ahk_class SynergyDesk
 Hotkey mbutton, paste_selection
 
 #IfWinNotActive ahk_group ignore
