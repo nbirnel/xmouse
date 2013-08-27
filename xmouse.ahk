@@ -1,7 +1,6 @@
 mousedrag_treshold := 20 ; pixels
 
 GroupAdd, ignore, ahk_class ConsoleWindowClass
-GroupAdd, ignore, ahk_class mintty
 GroupAdd, ignore, ahk_class inferno
 GroupAdd, ignore, ahk_class SynergyDesk
 Hotkey mbutton, paste_selection
@@ -15,10 +14,12 @@ Hotkey mbutton, paste_selection
     or abs(mousedrag_y2 - mousedrag_y) > mousedrag_treshold)
   {
     wingetclass class, A
-    if (class == "Emacs")
-      sendinput !w
+    if (class == "mintty")
+      sendinput ^{Insert}
     else if (class == "MozillaWindowClass")
       sendinput ^v^c
+    else if (class == "Emacs")
+      sendinput !w
     else
       sendinput ^c
     settimer follow_mouse, 100
@@ -32,10 +33,12 @@ follow_mouse:
 paste_selection:
   sendinput {lbutton}
   WinGetClass class, A
-  if (class == "Emacs")
-    SendInput ^y
+  if (class == "mintty")
+    sendinput +{Insert}
   else if (class == "MozillaWindowClass")
     sendinput ^v^v
+  else if (class == "Emacs")
+    SendInput ^y
   else
     SendInput ^v
   gosub cleanup
