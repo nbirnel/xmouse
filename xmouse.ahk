@@ -46,12 +46,6 @@ paste_selection:
  
 cleanup:
   SetTimer cleanup, off
-  settimer follow_mouse, off
+  SetTimer follow_mouse, off
   tooltip
   Return
- 
- 
-; ;; clipx
-; ^mbutton::
-;   sendinput ^+{insert}
-;   return
