@@ -1,3 +1,4 @@
+#CC="/cygdrive/c/Program Files/AutoHotkey/Compiler/Ahk2Exe.exe"
 CC="/cygdrive/c/Program Files (x86)/AutoHotkey/Compiler/Ahk2Exe.exe"
 PROG=xmouse
 
