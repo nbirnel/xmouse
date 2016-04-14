@@ -5,6 +5,7 @@ GroupAdd, ignore, ahk_class cygwin/x
 GroupAdd, ignore, ahk_class cygwin/x X rl
 GroupAdd, ignore, ahk_class inferno
 GroupAdd, ignore, ahk_class SynergyDesk
+GroupAdd, ignore, ahk_exe   VpxClient.exe    ; vSphere
 Hotkey mbutton, paste_selection
 
 #IfWinNotActive ahk_group ignore
